@@ -10,8 +10,8 @@ export default function About() {
           <p className="mb-4">$ cat about.txt</p>
           <div className="text-green">
             <ul className="flex flex-col gap-2">
-              <li>🐝 I&apos;m an undergraduate at the <span className="text-blue">University of Toronto</span> studying Computer Science</li>
-              <li>👾 I&apos;m have two focuses for my degree in <span className="text-blue">Computer Systems</span> and <span className="text-blue">Artificial Intelligence</span></li>
+              <li>I&apos;m an undergraduate at the <span className="text-blue">University of Toronto</span> studying Computer Science :D</li>
+              <li>I&apos;m have two focuses for my degree in <span className="text-blue">Computer Systems</span> and <span className="text-blue">Artificial Intelligence</span> :O</li>
               {/* <li>👩‍💻 Most of my experience is in <span className="text-blue">formal methods using languages like Lean</span> and <span className="text-blue">systems programming</span></li> */}
             </ul>
           </div>
