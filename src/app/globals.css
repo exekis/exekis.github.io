@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #1a1b26;
+
+  --card: #1f2335;
+  --card-foreground: 169, 177, 214;
+  --card-border: #292e42;
+  --card-border-hover: #7aa2f7;
+
+  --green: #9ece6a;
+  --blue: #89ddff;
+  --purple: #bb9af7;
+  --purple-blue: #7aa2f7;
+  --gray-white: #a9b1d6;
+
+  --tag-background: #292e42;
+  --muted: #565f89;
+
+}
+
+html {
+  @apply bg-background;
+}
