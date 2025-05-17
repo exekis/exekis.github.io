@@ -8,7 +8,7 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata = {
-  title: "Alexa Fazio's Portfolio",
+  title: "Kiarash's Portfolio",
   description: "A developer portfolio inspired by Tokyo Night theme",
 }
 

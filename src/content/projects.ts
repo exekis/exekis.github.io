@@ -8,33 +8,34 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "Canine Assistants",
-    description: "Web database to track service dog behavior and medical concerns.",
-    tags: ["Next.js", "MongoDB", "Azure"],
-    liveLink: "https://canine-assistants.netlify.app",
-    devLink: "https://github.com/GTBitsOfGood/canine-assistants",
+    title: "Bookit",
+    description: "Save all your open tabs into organized bookmark folders with one click. Bookit is a browser extension that allows you to save all your open tabs into organized bookmark folders with one click. It lets you combine folders, archive them, and save open tabs with today's date as the folder name.",
+    tags: ["JavaScript", "HTML", "Firefox Addon", "Chrome Extension"],
+    liveLink: "https://addons.mozilla.org/en-CA/firefox/addon/bookit/",
+    devLink: "https://github.com/exekis/bookit",
   },
   {
-    title: "Peer Notes",
-    description: "P2P note sharing platform that allows students to host and search for notes based on professor, course, semester and topic.",
-    tags: ["Django", "Flask", "React.js", "SQLite"],
-    liveLink: "",
-    devLink: "https://github.com/AmanTahiliani/PeerNotes",
+    title: "RATTM",
+    description: "An Eco-Score Calculator for Cash App: Our Eco-Score Calculator lets users make sustainable choices by quantifying the environmental impact of their daily spending.",
+    tags: ["Python", "TypeScript/JavaScript", "Django", "Next.js", "React"],
+    liveLink: "https://rattm.vercel.app/",
+    devLink: "https://github.com/exekis/rattm",
   },
   {
-    title: "Web Crawler",
-    description: "Domain-specific web crawler written in Go with MongoDB as a web archive. Parses pages for keywords and creates an inverted index table for search queries.",
-    tags: ["Go", "MongoDB"],
-    liveLink: "",
-    devLink: "https://github.com/afazio1/web-crawler",
+    title: "Once Upon a Chat",
+    description: "Once Upon a Chat is a Next.js web application that analyzes WhatsApp group chat history to present users with a Spotify Wrapped-style summary of key moments and statistics. Users can save favourite moments and share them back to the group.",
+    tags: ["Python", "TypeScript/JavaScript", "Firebase", "Next.js", "React"],
+    liveLink: "https://devpost.com/software/once-upon-a-chat",
+    devLink: "https://github.com/exekis/once-upon-a-chat",
   },
   {
-    title: "Obsidian Plugin: Markdown Blogger",
-    description: "A text editor plugin empowering developers to effortlessly publish markdown notes to their static sites.",
-    tags: ["TypeScript", "Node.js"],
-    liveLink: "https://obsidian.md/plugins?search=markdown%20blogger",
-    devLink: "https://github.com/afazio1/obsidian-markdown-blogger"
-  }
+    title: "Sorting Algorithm Visualizer",
+    description: "A Java application with Swing GUI that visualizes sorting algorithms for educational purposes. Users can select different sorting algorithms and visualize their performance on random data sets with different customization options.",
+    tags: ["Java", "Swing", "Sorting Algorithms"],
+    liveLink: "https://github.com/exekis/sorting-algorithms-visualizer",
+    devLink: "https://github.com/exekis/sorting-algorithms-visualizer",
+  },
+
 ]
 
 export default projects;
