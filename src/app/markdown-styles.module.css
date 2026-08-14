@@ -1,38 +1,79 @@
 .markdown {
-  @apply text-lg leading-relaxed;
+  padding-top: 3rem;
+  color: var(--ink);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 1.04rem;
+  line-height: 1.8;
 }
 
 .markdown p,
 .markdown ul,
 .markdown ol,
 .markdown blockquote {
-  @apply my-6;
+  margin: 1.4rem 0;
 }
 
 .markdown h2 {
-  @apply text-2xl mt-12 mb-4 leading-snug font-semibold text-purple-blue;
+  margin: 3.75rem 0 1rem;
+  color: var(--ink-strong);
+  font-family: var(--font-mono), monospace;
+  font-size: 1.45rem;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.4;
+}
+
+.markdown h2::before {
+  content: "## ";
+  color: var(--accent);
 }
 
 .markdown h3 {
-  @apply text-xl mt-8 mb-4 leading-snug text-purple font-semibold;
+  margin: 2.8rem 0 1rem;
+  color: var(--ink-strong);
+  font-family: var(--font-mono), monospace;
+  font-size: 1.15rem;
+  font-weight: 600;
 }
 
-.markdown ul {
-  @apply ml-4 list-disc;
-}
-
+.markdown ul,
 .markdown ol {
-  @apply ml-8 list-decimal;
+  padding-left: 1.4rem;
 }
 
-.markdown b,
+.markdown li + li {
+  margin-top: 0.45rem;
+}
+
 .markdown strong {
-  @apply text-blue font-bold;
+  color: var(--ink-strong);
+  font-weight: 650;
+}
+
+.markdown em {
+  color: var(--ink-strong);
 }
 
 .markdown blockquote {
-  @apply bg-background italic px-4 text-purple;
+  border-left: 2px solid var(--accent);
+  padding: 0.1rem 0 0.1rem 1.4rem;
+  color: var(--muted);
 }
+
 .markdown a {
-  @apply underline text-green;
+  color: var(--accent);
+}
+
+.markdown code {
+  border: 1px solid var(--line);
+  padding: 0.08em 0.3em;
+  color: var(--accent-bright);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.9em;
+}
+
+@media (max-width: 620px) {
+  .markdown {
+    font-size: 1rem;
+  }
 }

@@ -4,11 +4,10 @@ const nextConfig: NextConfig = {
   // build a fully static site
   output: "export",
 
-  // (good for GitHub Pages)
+  // keep route directories compatible with GitHub Pages
   trailingSlash: true,
 
   assetPrefix: process.env.NODE_ENV === "production" ? "/" : "",
-
 };
 
 export default nextConfig;

@@ -6,9 +6,9 @@ date: "2024-12-17"
 tags: ["University", "Systems", "Internships"]
 ---
 
-Coming into university I thought I would pursue a concentration in AI/ML as a part of my Computer Science degree. After all, AI is all the rage. I would be doing myself a disservice if I did not take the opportunity to pursue it in college. I even enrolled in an upper-level AI class, the second semester of my freshman year. I quickly realized that it wasn't for me— it was challenging in ways that didn't excite me. The content was very math and theory heavy. I ended up withdrawing from the class as a cumulation of the course being too hard and me being a naive freshman.
+Coming into university I thought I would pursue a concentration in AI/ML as a part of my Computer Science degree. After all, AI is all the rage. I would be doing myself a disservice if I did not take the opportunity to pursue it in college. I even enrolled in an upper-level AI class, the second semester of my freshman year. I quickly realized that it wasn't for me. It was challenging in ways that didn't excite me. The content was very math and theory heavy. I ended up withdrawing from the class as a cumulation of the course being too hard and me being a naive freshman.
 
-Around that same time, I took two foundational system courses at Georgia Tech— Computer Organization & Programming (CS 2110) and Systems & Networks (CS 2200)— and everything clicked. I loved it. I felt like I'd found my place.
+Around that same time, I took two foundational system courses at Georgia Tech: Computer Organization & Programming (CS 2110) and Systems & Networks (CS 2200). Everything clicked. I loved it. I felt like I'd found my place.
 ## Why Systems
 What drew me to systems?
 
@@ -27,7 +27,7 @@ With such knowledge comes power:
 > The power to make informed engineering decisions.
 > The power to solve, challenging real-world problems.
 
-For a while, a voice in my head (and plenty of people around me) insisted I should stick with AI because it's the future. People told me systems knowledge wasn't relevant for a software engineering job. And that might be true for most SWE roles. But if I've already put myself through 3+ Georgia Tech systems courses—cramming 1s and 0s into the CPU, only managing to get the kernel to boot with an offering of my very own blood, sweat, and tears—whilst corrupting my 4MB of RAM and successfully forking a shell, then I probably wouldn't want to settle for just any SWE job.
+For a while, a voice in my head (and plenty of people around me) insisted I should stick with AI because it's the future. People told me systems knowledge wasn't relevant for a software engineering job. And that might be true for most SWE roles. But if I've already put myself through 3+ Georgia Tech systems courses, cramming 1s and 0s into the CPU and only managing to get the kernel to boot with an offering of my very own blood, sweat, and tears whilst corrupting my 4MB of RAM and successfully forking a shell, then I probably wouldn't want to settle for just any SWE job.
 ## Systems Power Everything
 It doesn't matter if you write the bestest-mostest-goodest LLM training algorithm if your scheduler isn't effectively distributing tasks to system resources. Everything is a system. Everything must run on a system. Oftentimes, the bottleneck of various operations is the system itself. Systems programming is objectively important.
 

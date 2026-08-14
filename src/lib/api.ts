@@ -1,33 +1,36 @@
 import fs from "fs";
+import path from "path";
 import matter from "gray-matter";
-import { join } from "path";
 import type { BlogPost } from "@/content/blogposts";
 
-const postsDirectory = join(process.cwd(), "src/content/_posts");
+const postsDirectory = path.join(process.cwd(), "src/content/_posts");
+const safeSlug = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
 export function getPostSlugs() {
-  return fs.readdirSync(postsDirectory);
+  return fs.readdirSync(postsDirectory).filter((entry) => entry.endsWith(".md"));
 }
 
-export function getPostBySlug(slug: string) {
+export function getPostBySlug(slug: string): BlogPost | null {
   const realSlug = slug.replace(/\.md$/, "");
-  const fullPath = join(postsDirectory, `${realSlug}.md`);
-  let fileContents;
-  try {
-    fileContents = fs.readFileSync(fullPath, "utf8");
-  } catch {
-    return null; // file not found
-  }
-  const { data, content } = matter(fileContents);
 
-  return { ...data, content } as BlogPost;
+  if (!safeSlug.test(realSlug)) {
+    return null;
+  }
+
+  const fullPath = path.join(postsDirectory, `${realSlug}.md`);
+
+  try {
+    const fileContents = fs.readFileSync(fullPath, "utf8");
+    const { data, content } = matter(fileContents);
+    return { ...data, content } as BlogPost;
+  } catch {
+    return null;
+  }
 }
 
-export function getAllPosts() {
-  const slugs = getPostSlugs();
-  const posts = slugs
+export function getAllPosts(): BlogPost[] {
+  return getPostSlugs()
     .map((slug) => getPostBySlug(slug))
-    // sort posts by date in descending order
-    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
-  return posts;
+    .filter((post): post is BlogPost => post !== null)
+    .sort((first, second) => (first.date > second.date ? -1 : 1));
 }
