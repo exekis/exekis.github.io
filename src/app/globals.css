@@ -166,18 +166,27 @@ code {
   width: 100%;
 }
 
-.prompt-line {
-  margin-bottom: 1.3rem;
+.exekis-banner {
+  overflow-x: auto;
+  overflow-y: hidden;
   color: var(--accent);
-  font-size: 0.78rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  white-space: pre;
 }
 
-.exekis-banner {
-  overflow: hidden;
-  color: var(--accent);
-  font-size: clamp(0.7rem, 1.6vw, 1.15rem);
-  line-height: 1.15;
-  white-space: pre;
+@media (min-width: 768px) {
+  .exekis-banner {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .exekis-banner {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
 }
 
 .hero-summary {

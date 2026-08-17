@@ -18,11 +18,18 @@ const profileLinks = [
   },
 ];
 
-const exekisBanner = String.raw`  _______  _______ _  _____ ____
- | ____\ \/ / ____| |/ /_ _/ ___|
- |  _|  \  /|  _| | ' / | |\___ \
- | |___ /  \| |___| . \ | | ___) |
- |_____/_/\_\_____|_|\_\___|____/`;
+const exekisBanner = [
+  "",
+  "  ▄████████ ▀████    ▐████▀    ▄████████    ▄█   ▄█▄  ▄█     ▄████████ ",
+  "  ███    ███   ███▌   ████▀    ███    ███   ███ ▄███▀ ███    ███    ███ ",
+  "  ███    █▀     ███  ▐███      ███    █▀    ███▐██▀   ███▌   ███    █▀  ",
+  " ▄███▄▄▄        ▀███▄███▀     ▄███▄▄▄      ▄█████▀    ███▌   ███        ",
+  "▀▀███▀▀▀        ████▀██▄     ▀▀███▀▀▀     ▀▀█████▄    ███▌ ▀███████████ ",
+  "  ███    █▄    ▐███  ▀███      ███    █▄    ███▐██▄   ███           ███ ",
+  "  ███    ███  ▄███     ███▄    ███    ███   ███ ▀███▄ ███     ▄█    ███ ",
+  "  ██████████ ████       ███▄   ██████████   ███   ▀█▀ █▀    ▄████████▀  ",
+  "        ",
+].join("\n");
 
 function SectionHeading({
   id,
@@ -77,7 +84,6 @@ export default function HomePage() {
     <>
       <section className="hero" aria-labelledby="hero-title">
         <div className="hero-copy">
-          <p className="prompt-line">kiarash@toronto:~$ whoami</p>
           <h1 className="visually-hidden" id="hero-title">
             Kiarash Sotoudeh, exekis
           </h1>
