@@ -1,6 +1,17 @@
+export type PortfolioLinkKind =
+  | "paper"
+  | "code"
+  | "slides"
+  | "event"
+  | "web"
+  | "install"
+  | "writeup"
+  | "grant";
+
 export type PortfolioLink = {
   label: string;
   href: string;
+  kind?: PortfolioLinkKind;
 };
 
 export type TerminalLine = {
@@ -35,8 +46,14 @@ export const research: PortfolioItem[] = [
       {
         label: "paper",
         href: "https://icfp26.sigplan.org/details/icfp-2026-icfp-papers/23/Compositional-Generator-Equivalence",
+        kind: "paper",
       },
-      { label: "lean proofs", href: "https://github.com/YellPika/quasi-borel-spaces" },
+      { label: "arxiv", href: "https://arxiv.org/abs/2606.22616", kind: "paper" },
+      {
+        label: "lean proofs",
+        href: "https://github.com/YellPika/quasi-borel-spaces",
+        kind: "code",
+      },
     ],
     terminal: {
       slug: "halcheck",
@@ -55,8 +72,12 @@ export const research: PortfolioItem[] = [
       "A machine-checked foundation for products, coproducts, exponentials, ωCPO limits, and probabilistic semantics in Lean.",
     stack: ["Lean 4", "formal methods", "measure theory"],
     links: [
-      { label: "session", href: "https://icms-conference.org/2026/session5.html" },
-      { label: "repository", href: "https://github.com/YellPika/quasi-borel-spaces" },
+      { label: "session", href: "https://icms-conference.org/2026/session5.html", kind: "event" },
+      {
+        label: "repository",
+        href: "https://github.com/YellPika/quasi-borel-spaces",
+        kind: "code",
+      },
     ],
     terminal: {
       slug: "quasi-borel-spaces",
@@ -78,11 +99,17 @@ export const research: PortfolioItem[] = [
       {
         label: "slides",
         href: "https://drive.google.com/file/d/1zWeVdFa356c1EJiWW9UHc-lmIGInCLdc/view?usp=sharing",
+        kind: "slides",
       },
-      { label: "workshop", href: "https://icfp26.sigplan.org/home/mlfamilyworkshop-2026" },
+      {
+        label: "workshop",
+        href: "https://icfp26.sigplan.org/home/mlfamilyworkshop-2026",
+        kind: "event",
+      },
       {
         label: "ahrefs grant",
         href: "https://discuss.ocaml.org/t/ahrefs-grant-program-for-ocaml/17604/5",
+        kind: "grant",
       },
     ],
     terminal: {
@@ -104,6 +131,7 @@ export const research: PortfolioItem[] = [
       {
         label: "repository",
         href: "https://github.com/google-deepmind/formal-conjectures",
+        kind: "code",
       },
     ],
     terminal: {
@@ -140,7 +168,7 @@ export const industry: PortfolioItem[] = [
     description:
       "Owned Shopify's in-house merge queue on its internal Git server, from runtime improvements to compiler passes that reject privileged Docker sidecar options before jobs reach shared workers.",
     stack: ["Ruby", "Kubernetes", "CI", "security"],
-    links: [{ label: "shopify", href: "https://www.shopify.com/" }],
+    links: [{ label: "shopify", href: "https://www.shopify.com/", kind: "web" }],
     terminal: {
       slug: "shopify/merge-queue",
       lines: [
@@ -156,7 +184,7 @@ export const industry: PortfolioItem[] = [
     description:
       "Scraped and normalized University of Toronto and Waterloo awards into typed snapshots, then built the scholarship finder around them: amount filters, sorting, pagination, and detail pages.",
     stack: ["TypeScript", "Next.js", "Playwright"],
-    links: [{ label: "embark", href: "https://www.embark.ca/" }],
+    links: [{ label: "embark", href: "https://www.embark.ca/", kind: "web" }],
     terminal: {
       slug: "files/awards",
       lines: [
@@ -170,9 +198,9 @@ export const industry: PortfolioItem[] = [
     title: "ESG scoring compiler",
     meta: "Cash App · software engineering apprenticeship · 2024",
     description:
-      "Built the compiler behind an ESG scoring system with real-time carbon-footprint tracking, and optimized its ML inference path with XLA.",
-    stack: ["Python", "C++", "XLA"],
-    links: [{ label: "cash app", href: "https://cash.app/" }],
+      "Built the compiler behind an ESG scoring system with real-time carbon-footprint tracking.",
+    stack: ["Python", "TypeScript"],
+    links: [{ label: "cash app", href: "https://cash.app/", kind: "web" }],
     terminal: {
       slug: "uoft/csc207/cashapp/esgc",
       lines: [
@@ -191,7 +219,7 @@ export const projects: PortfolioItem[] = [
     description:
       "An interactive shell wrapper that logs every command's directory, timing, output, and exit code into per-session JSON, with optional Azure Cosmos DB export and a cosmos_doctor setup check.",
     stack: ["Rust", "Unix", "Azure Cosmos DB"],
-    links: [{ label: "source", href: "https://github.com/exekis/recli" }],
+    links: [{ label: "source", href: "https://github.com/exekis/recli", kind: "code" }],
     terminal: {
       slug: "recli",
       lines: [
@@ -207,7 +235,7 @@ export const projects: PortfolioItem[] = [
     description:
       "A cross-platform system monitor for Arch Linux and macOS with weighted CPU accounting and multi-factor memory-pressure scoring, configured and logged as JSON while staying featherweight.",
     stack: ["Rust", "Perl", "Linux"],
-    links: [{ label: "source", href: "https://github.com/exekis/symon" }],
+    links: [{ label: "source", href: "https://github.com/exekis/symon", kind: "code" }],
     terminal: {
       slug: "symon",
       lines: [
@@ -224,8 +252,12 @@ export const projects: PortfolioItem[] = [
       "Save an unruly browser session into dated, organised bookmark folders, then combine or archive them later.",
     stack: ["JavaScript", "Firefox", "Chrome"],
     links: [
-      { label: "source", href: "https://github.com/exekis/bookit" },
-      { label: "install", href: "https://addons.mozilla.org/en-CA/firefox/addon/bookit/" },
+      { label: "source", href: "https://github.com/exekis/bookit", kind: "code" },
+      {
+        label: "install",
+        href: "https://addons.mozilla.org/en-CA/firefox/addon/bookit/",
+        kind: "install",
+      },
     ],
     terminal: {
       slug: "bookit",
@@ -243,8 +275,8 @@ export const projects: PortfolioItem[] = [
       "Turns a WhatsApp group history into a small, shareable year-in-review without uploading the conversation to a third-party service.",
     stack: ["Next.js", "Python", "Firebase"],
     links: [
-      { label: "source", href: "https://github.com/exekis/once-upon-a-chat" },
-      { label: "write-up", href: "https://devpost.com/software/once-upon-a-chat" },
+      { label: "source", href: "https://github.com/exekis/once-upon-a-chat", kind: "code" },
+      { label: "write-up", href: "https://devpost.com/software/once-upon-a-chat", kind: "writeup" },
     ],
     terminal: {
       slug: "once-upon-a-chat",
@@ -262,8 +294,8 @@ export const projects: PortfolioItem[] = [
       "An eco-score calculator that estimates the environmental footprint of everyday spending and makes the assumptions visible.",
     stack: ["Django", "Next.js", "React"],
     links: [
-      { label: "source", href: "https://github.com/exekis/rattm" },
-      { label: "demo", href: "https://rattm.vercel.app/" },
+      { label: "source", href: "https://github.com/exekis/rattm", kind: "code" },
+      { label: "demo", href: "https://rattm.vercel.app/", kind: "web" },
     ],
     terminal: {
       slug: "rattm",

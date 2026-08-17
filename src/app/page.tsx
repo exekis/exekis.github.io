@@ -1,7 +1,27 @@
-import { Github, GraduationCap, Linkedin, Music2 } from "lucide-react";
+import {
+  Award,
+  CalendarDays,
+  Download,
+  FileText,
+  Github,
+  Globe,
+  GraduationCap,
+  Linkedin,
+  Music2,
+  NotebookText,
+  Presentation,
+  type LucideIcon,
+} from "lucide-react";
 import ExternalLink from "@/components/ExternalLink";
 import TerminalPane from "@/components/TerminalPane";
-import { industry, projects, research, type PortfolioItem } from "@/content/portfolio";
+import {
+  industry,
+  projects,
+  research,
+  type PortfolioItem,
+  type PortfolioLink,
+  type PortfolioLinkKind,
+} from "@/content/portfolio";
 
 const profileLinks = [
   { label: "github", href: "https://github.com/exekis", Icon: Github },
@@ -17,6 +37,30 @@ const profileLinks = [
     Icon: Music2,
   },
 ];
+
+const linkGlyphs: Record<PortfolioLinkKind, LucideIcon> = {
+  paper: FileText,
+  code: Github,
+  slides: Presentation,
+  event: CalendarDays,
+  web: Globe,
+  install: Download,
+  writeup: NotebookText,
+  grant: Award,
+};
+
+// GitHub linguist language colours
+const languageColors: Record<string, string> = {
+  "Lean 4": "#C4FFC2",
+  OCaml: "#ef7a08",
+  Rust: "#dea584",
+  Python: "#3572A5",
+  "C++": "#f34b7d",
+  TypeScript: "#3178c6",
+  JavaScript: "#f1e05a",
+  Ruby: "#701516",
+  Perl: "#0298c3",
+};
 
 const exekisBanner = [
   "",
@@ -48,6 +92,26 @@ function SectionHeading({
   );
 }
 
+function TitleLink({ link, title }: { link: PortfolioLink; title: string }) {
+  const Glyph = linkGlyphs[link.kind ?? "web"];
+  return (
+    <ExternalLink href={link.href} showMark={false}>
+      {title}
+      <Glyph aria-hidden="true" className="title-glyph" strokeWidth={1.7} />
+    </ExternalLink>
+  );
+}
+
+function ItemLink({ link }: { link: PortfolioLink }) {
+  const Glyph = linkGlyphs[link.kind ?? "web"];
+  return (
+    <ExternalLink href={link.href} showMark={false}>
+      <Glyph aria-hidden="true" className="link-glyph" strokeWidth={1.7} />
+      <span>{link.label}</span>
+    </ExternalLink>
+  );
+}
+
 function ItemList({ items }: { items: PortfolioItem[] }) {
   return (
     <div className="item-list">
@@ -58,12 +122,27 @@ function ItemList({ items }: { items: PortfolioItem[] }) {
           </p>
           <div className="item-copy">
             <p className="item-meta">{item.meta}</p>
-            <h3>{item.title}</h3>
+            <h3>
+              {item.links[0] ? (
+                <TitleLink link={item.links[0]} title={item.title} />
+              ) : (
+                item.title
+              )}
+            </h3>
             {item.authors && <p className="item-authors">{item.authors}</p>}
             <p>{item.description}</p>
             <ul className="stack-list" aria-label={`${item.title} technologies`}>
               {item.stack.map((technology) => (
-                <li key={technology}>{technology}</li>
+                <li key={technology}>
+                  {languageColors[technology] && (
+                    <span
+                      aria-hidden="true"
+                      className="stack-swatch"
+                      style={{ backgroundColor: languageColors[technology] }}
+                    />
+                  )}
+                  {technology}
+                </li>
               ))}
             </ul>
           </div>
@@ -72,9 +151,7 @@ function ItemList({ items }: { items: PortfolioItem[] }) {
             {item.links.length > 0 && (
               <div className="item-links">
                 {item.links.map((link) => (
-                  <ExternalLink href={link.href} key={link.href}>
-                    {link.label}
-                  </ExternalLink>
+                  <ItemLink key={link.href} link={link} />
                 ))}
               </div>
             )}
@@ -97,8 +174,12 @@ export default function HomePage() {
             {exekisBanner}
           </pre>
           <p className="hero-summary">
-            Kiarash Sotoudeh. This is a small index of my work in compilers, formal methods, and
-            systems software.
+            Kiarash Sotoudeh. Fourth-year undergrad at the University of Toronto: computer
+            science specialist, mathematics major, philosophy minor. Looking for a computer
+            science MSc in Canada.
+          </p>
+          <p className="hero-summary">
+            This is a small index of my work in compilers, formal methods, and systems software.
           </p>
           <div className="profile-links" aria-label="Profile links">
             {profileLinks.map(({ href, Icon, label }) => (
@@ -124,31 +205,6 @@ export default function HomePage() {
       <section className="page-section" id="projects" aria-labelledby="projects-title">
         <SectionHeading id="projects-title" index="03">projects</SectionHeading>
         <ItemList items={projects} />
-      </section>
-
-      <section className="page-section about-section" id="about" aria-labelledby="about-title">
-        <SectionHeading id="about-title" index="04">about</SectionHeading>
-        <div className="about-copy">
-          <h3>I like systems that explain themselves.</h3>
-          <p>
-            I&apos;m studying computer science at the University of Toronto alongside mathematics and
-            philosophy. I care about tools that let people express strong ideas without giving up
-            safety, whether that means a type system, a proof, a compiler pass, or a reliable CI
-            pipeline.
-          </p>
-          <p>
-            Away from the terminal, I write, play piano and guitar, and follow soccer. I use Arch,
-            by the way.
-          </p>
-        </div>
-        <pre className="about-proof" aria-label="A small type signature">
-          {`build : Idea → Safe System
-build idea =
-  idea
-  |> make_explicit
-  |> test_assumptions
-  |> ship`}
-        </pre>
       </section>
     </>
   );

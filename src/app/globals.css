@@ -202,6 +202,10 @@ code {
   font-size: clamp(1.02rem, 1.3vw, 1.15rem);
 }
 
+.hero-summary + .hero-summary {
+  margin-top: 0.85rem;
+}
+
 .profile-links {
   display: flex;
   flex-wrap: wrap;
@@ -297,6 +301,23 @@ code {
   line-height: 1.35;
 }
 
+.item-copy h3 a {
+  text-decoration: none;
+}
+
+.title-glyph {
+  display: inline-block;
+  width: 0.7em;
+  height: 0.7em;
+  margin-left: 0.5rem;
+  vertical-align: -0.04em;
+  color: var(--faint);
+}
+
+.item-copy h3 a:hover .title-glyph {
+  color: inherit;
+}
+
 .item-copy > p:not(.item-meta),
 .writing-entry > p:not(.item-meta),
 .about-copy p {
@@ -331,6 +352,14 @@ code {
   content: ",\00a0";
 }
 
+.stack-swatch {
+  display: inline-block;
+  width: 0.55em;
+  height: 0.55em;
+  margin-right: 0.35em;
+  background: var(--faint);
+}
+
 .item-side {
   display: flex;
   flex-direction: column;
@@ -347,7 +376,16 @@ code {
 }
 
 .item-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   color: var(--link);
+}
+
+.link-glyph {
+  width: 0.85rem;
+  height: 0.85rem;
+  flex-shrink: 0;
 }
 
 .term {

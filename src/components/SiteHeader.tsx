@@ -4,7 +4,6 @@ const navigation = [
   { label: "research", href: "/#research" },
   { label: "industry", href: "/#industry" },
   { label: "projects", href: "/#projects" },
-  { label: "about", href: "/#about" },
 ];
 
 export default function SiteHeader() {
