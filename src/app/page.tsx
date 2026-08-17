@@ -13,6 +13,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import ExternalLink from "@/components/ExternalLink";
+import StackLogo from "@/components/StackLogo";
 import TerminalPane from "@/components/TerminalPane";
 import {
   industry,
@@ -47,19 +48,6 @@ const linkGlyphs: Record<PortfolioLinkKind, LucideIcon> = {
   install: Download,
   writeup: NotebookText,
   grant: Award,
-};
-
-// GitHub linguist language colours
-const languageColors: Record<string, string> = {
-  "Lean 4": "#C4FFC2",
-  OCaml: "#ef7a08",
-  Rust: "#dea584",
-  Python: "#3572A5",
-  "C++": "#f34b7d",
-  TypeScript: "#3178c6",
-  JavaScript: "#f1e05a",
-  Ruby: "#701516",
-  Perl: "#0298c3",
 };
 
 const exekisBanner = [
@@ -134,13 +122,7 @@ function ItemList({ items }: { items: PortfolioItem[] }) {
             <ul className="stack-list" aria-label={`${item.title} technologies`}>
               {item.stack.map((technology) => (
                 <li key={technology}>
-                  {languageColors[technology] && (
-                    <span
-                      aria-hidden="true"
-                      className="stack-swatch"
-                      style={{ backgroundColor: languageColors[technology] }}
-                    />
-                  )}
+                  <StackLogo name={technology} />
                   {technology}
                 </li>
               ))}
@@ -174,12 +156,13 @@ export default function HomePage() {
             {exekisBanner}
           </pre>
           <p className="hero-summary">
-            Kiarash Sotoudeh. Fourth-year undergrad at the University of Toronto: computer
-            science specialist, mathematics major, philosophy minor. Looking for a computer
-            science MSc in Canada.
+            Hey there! I&apos;m Kiarash and I&apos;m a fourth-year undergrad at the University
+            of Toronto: computer science specialist, math major, philosophy minor. Next stop,
+            a computer science MSc in Canada.
           </p>
           <p className="hero-summary">
-            This is a small index of my work in compilers, formal methods, and systems software.
+            Here&apos;s a small index of my work in compilers, formal methods, and systems
+            software: things I like building, proving, and occasionally breaking on purpose.
           </p>
           <div className="profile-links" aria-label="Profile links">
             {profileLinks.map(({ href, Icon, label }) => (

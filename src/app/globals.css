@@ -352,12 +352,18 @@ code {
   content: ",\00a0";
 }
 
-.stack-swatch {
+.stack-logo {
   display: inline-block;
-  width: 0.55em;
-  height: 0.55em;
-  margin-right: 0.35em;
-  background: var(--faint);
+  width: 1.1em;
+  height: 1.1em;
+  margin-right: 0.4em;
+  vertical-align: -0.2em;
+}
+
+.stack-logo-wide {
+  width: 3.6em;
+  height: 1.25em;
+  vertical-align: -0.3em;
 }
 
 .item-side {
