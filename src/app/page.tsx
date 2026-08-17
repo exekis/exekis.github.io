@@ -1,7 +1,7 @@
-import Link from "next/link";
 import { Github, GraduationCap, Linkedin, Music2 } from "lucide-react";
 import ExternalLink from "@/components/ExternalLink";
-import { projects, research, work, type PortfolioItem } from "@/content/portfolio";
+import TerminalPane from "@/components/TerminalPane";
+import { industry, projects, research, type PortfolioItem } from "@/content/portfolio";
 
 const profileLinks = [
   { label: "github", href: "https://github.com/exekis", Icon: Github },
@@ -59,6 +59,7 @@ function ItemList({ items }: { items: PortfolioItem[] }) {
           <div className="item-copy">
             <p className="item-meta">{item.meta}</p>
             <h3>{item.title}</h3>
+            {item.authors && <p className="item-authors">{item.authors}</p>}
             <p>{item.description}</p>
             <ul className="stack-list" aria-label={`${item.title} technologies`}>
               {item.stack.map((technology) => (
@@ -66,12 +67,17 @@ function ItemList({ items }: { items: PortfolioItem[] }) {
               ))}
             </ul>
           </div>
-          <div className="item-links">
-            {item.links.map((link) => (
-              <ExternalLink href={link.href} key={link.href}>
-                {link.label}
-              </ExternalLink>
-            ))}
+          <div className="item-side">
+            <TerminalPane terminal={item.terminal} />
+            {item.links.length > 0 && (
+              <div className="item-links">
+                {item.links.map((link) => (
+                  <ExternalLink href={link.href} key={link.href}>
+                    {link.label}
+                  </ExternalLink>
+                ))}
+              </div>
+            )}
           </div>
         </article>
       ))}
@@ -105,40 +111,23 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="page-section" id="work" aria-labelledby="work-title">
-        <SectionHeading id="work-title" index="01">selected work</SectionHeading>
-        <ItemList items={work} />
-      </section>
-
       <section className="page-section" id="research" aria-labelledby="research-title">
-        <SectionHeading id="research-title" index="02">research and open source</SectionHeading>
+        <SectionHeading id="research-title" index="01">research</SectionHeading>
         <ItemList items={research} />
       </section>
 
+      <section className="page-section" id="industry" aria-labelledby="industry-title">
+        <SectionHeading id="industry-title" index="02">industry work</SectionHeading>
+        <ItemList items={industry} />
+      </section>
+
       <section className="page-section" id="projects" aria-labelledby="projects-title">
-        <SectionHeading id="projects-title" index="03">smaller programs</SectionHeading>
+        <SectionHeading id="projects-title" index="03">projects</SectionHeading>
         <ItemList items={projects} />
       </section>
 
-      <section className="page-section split-section" id="writing" aria-labelledby="writing-title">
-        <SectionHeading id="writing-title" index="04">writing</SectionHeading>
-        <article className="writing-entry">
-          <p className="item-meta">2024-12-17 / systems</p>
-          <h3>
-            <Link href="/blog/why-systems">Why I Chose Systems (and Why It&apos;s Worth It)</Link>
-          </h3>
-          <p>
-            On CPUs, corrupted memory, kernel debugging, and why understanding the machinery beneath
-            our abstractions is still worth the trouble.
-          </p>
-          <Link className="text-link" href="/blog/why-systems">
-            read essay <span aria-hidden="true">→</span>
-          </Link>
-        </article>
-      </section>
-
       <section className="page-section about-section" id="about" aria-labelledby="about-title">
-        <SectionHeading id="about-title" index="05">about</SectionHeading>
+        <SectionHeading id="about-title" index="04">about</SectionHeading>
         <div className="about-copy">
           <h3>I like systems that explain themselves.</h3>
           <p>

@@ -8,6 +8,7 @@
   --accent-bright: #89ddff;
   --link: #7aa2f7;
   --purple: #bb9af7;
+  --red: #f7768e;
   --background: #1a1b26;
   --surface: #1f2335;
   --line: #292e42;
@@ -30,7 +31,7 @@ body {
   background: var(--background);
   color: var(--ink);
   font-family: var(--font-mono), "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.65;
   text-rendering: optimizeLegibility;
 }
@@ -139,7 +140,7 @@ code {
   flex-wrap: wrap;
   gap: 0.5rem 1.5rem;
   list-style: none;
-  font-size: 0.78rem;
+  font-size: 0.85rem;
 }
 
 .nav-list span {
@@ -170,6 +171,11 @@ code {
   overflow-x: auto;
   overflow-y: hidden;
   color: var(--accent);
+  /* Deployed main never applied JetBrains Mono to <pre>; the banner's block
+     glyphs only keep their aspect ratio in Tailwind preflight's default mono
+     stack, so pin that stack here. */
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
   font-size: 0.75rem;
   line-height: 1rem;
   white-space: pre;
@@ -193,7 +199,7 @@ code {
   max-width: 64ch;
   margin-top: 2.4rem;
   color: var(--ink);
-  font-size: clamp(0.95rem, 1.25vw, 1.05rem);
+  font-size: clamp(1.02rem, 1.3vw, 1.15rem);
 }
 
 .profile-links {
@@ -201,7 +207,7 @@ code {
   flex-wrap: wrap;
   gap: 0.6rem 1.4rem;
   margin-top: 2rem;
-  font-size: 0.82rem;
+  font-size: 0.9rem;
 }
 
 .profile-links a,
@@ -239,12 +245,12 @@ code {
 
 .section-heading span {
   color: var(--faint);
-  font-size: 0.68rem;
+  font-size: 0.75rem;
 }
 
 .section-heading h2 {
   color: var(--link);
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 500;
   letter-spacing: 0.09em;
   text-transform: uppercase;
@@ -256,8 +262,9 @@ code {
 
 .item-row {
   display: grid;
-  grid-template-columns: 4rem minmax(0, 1fr) minmax(7rem, auto);
+  grid-template-columns: 4rem minmax(0, 1fr) 22rem;
   gap: 0 2rem;
+  align-items: start;
   border-top: 1px solid var(--line);
   padding: 2.25rem 0;
 }
@@ -265,7 +272,7 @@ code {
 .item-index {
   padding-top: 0.12rem;
   color: var(--faint);
-  font-size: 0.68rem;
+  font-size: 0.75rem;
 }
 
 .item-copy {
@@ -274,8 +281,9 @@ code {
 
 .item-meta {
   margin-bottom: 0.55rem;
-  color: var(--muted);
-  font-size: 0.68rem;
+  color: var(--accent);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
@@ -283,7 +291,7 @@ code {
 .writing-entry h3,
 .about-copy h3 {
   color: var(--ink-strong);
-  font-size: clamp(1.15rem, 2vw, 1.5rem);
+  font-size: clamp(1.3rem, 2.2vw, 1.65rem);
   font-weight: 550;
   letter-spacing: -0.035em;
   line-height: 1.35;
@@ -296,12 +304,18 @@ code {
   color: var(--muted);
 }
 
+.item-copy > p.item-authors {
+  margin-top: 0.6rem;
+  color: var(--faint);
+  font-size: 0.85rem;
+}
+
 .stack-list {
   display: flex;
   flex-wrap: wrap;
   margin-top: 1.25rem;
   color: var(--faint);
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   list-style: none;
 }
 
@@ -317,14 +331,89 @@ code {
   content: ",\00a0";
 }
 
-.item-links {
+.item-side {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  gap: 0.65rem;
-  padding-top: 1.35rem;
-  font-size: 0.74rem;
+  gap: 1.15rem;
+}
+
+.item-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.45rem 1.3rem;
+  font-size: 0.88rem;
   white-space: nowrap;
+}
+
+.item-links a {
+  color: var(--link);
+}
+
+.term {
+  width: 100%;
+  max-width: 26rem;
+  margin: 0;
+  border: 1px solid var(--line-strong);
+  background: var(--surface);
+  font-size: 0.75rem;
+  line-height: 1.8;
+}
+
+.term-bar {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid var(--line);
+  padding: 0.4rem 0.85rem;
+  color: var(--muted);
+}
+
+.term-name::before {
+  content: "~/";
+  color: var(--faint);
+}
+
+.term-controls {
+  color: var(--faint);
+  letter-spacing: 0.22em;
+}
+
+.term-body {
+  overflow-x: auto;
+  padding: 0.75rem 0.85rem 0.85rem;
+  color: var(--muted);
+}
+
+.term-line {
+  display: block;
+  white-space: pre;
+}
+
+.term-mark {
+  color: var(--faint);
+}
+
+.term-cmd {
+  color: var(--ink);
+}
+
+.term-cmd .term-mark,
+.term-ok .term-mark {
+  color: var(--accent);
+}
+
+.term-err .term-mark {
+  color: var(--red);
+}
+
+.term-note .term-mark {
+  color: var(--purple);
+}
+
+.term-cursor {
+  color: var(--accent);
 }
 
 .split-section,
@@ -356,7 +445,7 @@ code {
   display: inline-block;
   margin-top: 1.5rem;
   color: var(--accent);
-  font-size: 0.78rem;
+  font-size: 0.85rem;
   text-decoration: none;
 }
 
@@ -375,7 +464,7 @@ code {
   border-left: 1px solid var(--line-strong);
   padding-left: 1.5rem;
   color: var(--muted);
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   line-height: 1.85;
 }
 
@@ -386,7 +475,7 @@ code {
   border-top: 1px solid var(--line-strong);
   padding: 1.7rem 0 2.4rem;
   color: var(--faint);
-  font-size: 0.68rem;
+  font-size: 0.75rem;
 }
 
 .footer-status {
@@ -444,12 +533,12 @@ code {
 
 .post-row time {
   color: var(--faint);
-  font-size: 0.72rem;
+  font-size: 0.8rem;
 }
 
 .post-row h2 {
   color: var(--ink-strong);
-  font-size: 1.35rem;
+  font-size: 1.45rem;
   font-weight: 550;
   letter-spacing: -0.035em;
 }
@@ -493,7 +582,7 @@ code {
   display: block;
   margin-top: 1.3rem;
   color: var(--faint);
-  font-size: 0.72rem;
+  font-size: 0.8rem;
 }
 
 .error-page {
@@ -527,7 +616,13 @@ code {
   border-left: 1px solid var(--line-strong);
   padding-left: 1.25rem;
   color: var(--muted);
-  font-size: 0.78rem;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 1120px) {
+  .item-row {
+    grid-template-columns: 4rem minmax(0, 1fr) 19rem;
+  }
 }
 
 @media (max-width: 880px) {
@@ -540,6 +635,19 @@ code {
 
   .hero {
     min-height: auto;
+  }
+
+  .item-row {
+    grid-template-columns: 4rem minmax(0, 1fr);
+  }
+
+  .item-side {
+    grid-column: 2;
+    margin-top: 1.6rem;
+  }
+
+  .item-links {
+    justify-content: flex-start;
   }
 
   .split-section,
@@ -559,7 +667,7 @@ code {
   }
 
   body {
-    font-size: 14px;
+    font-size: 15px;
   }
 
   .site-shell {
@@ -581,14 +689,6 @@ code {
   .item-row {
     grid-template-columns: 2.5rem minmax(0, 1fr);
     gap: 0 0;
-  }
-
-  .item-links {
-    grid-column: 2;
-    flex-direction: row;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    padding-top: 1.3rem;
   }
 
   .post-row {
@@ -627,11 +727,13 @@ code {
     --surface: #fff;
     --line: #ccc;
     --line-strong: #999;
+    --red: #222;
   }
 
   .site-header,
   .site-footer,
-  .profile-links {
+  .profile-links,
+  .term {
     display: none;
   }
 
