@@ -360,6 +360,32 @@ code {
   vertical-align: -0.2em;
 }
 
+.topic-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0.4rem;
+  color: var(--faint);
+  font-size: 0.75rem;
+  list-style: none;
+}
+
+.topic-list::before {
+  content: "⟨";
+}
+
+.topic-list::after {
+  content: "⟩";
+}
+
+.topic-list li:not(:last-child)::after {
+  content: ",\00a0";
+}
+
+.topic-glyph {
+  margin-right: 0.4em;
+  color: var(--ink);
+}
+
 .item-side {
   display: flex;
   flex-direction: column;

@@ -31,6 +31,7 @@ export type PortfolioItem = {
   authors?: string;
   description: string;
   stack: string[];
+  topics?: string[];
   links: PortfolioLink[];
   terminal: PortfolioTerminal;
 };
@@ -42,7 +43,8 @@ export const research: PortfolioItem[] = [
     authors: "Anthony Vandikas · Kiarash Sotoudeh · Marsha Chechik",
     description:
       "A compositional account of generator equivalence for higher-order probabilistic programs, backed by a Lean formalization of quasi-Borel spaces and domain-theoretic structure.",
-    stack: ["Lean 4", "probability", "semantics", "domain theory"],
+    stack: ["Lean 4"],
+    topics: ["probability", "semantics", "domain theory"],
     links: [
       {
         label: "paper",
@@ -71,7 +73,8 @@ export const research: PortfolioItem[] = [
     authors: "Anthony Vandikas · Kiarash Sotoudeh",
     description:
       "A machine-checked foundation for products, coproducts, exponentials, ωCPO limits, and probabilistic semantics in Lean.",
-    stack: ["Lean 4", "formal methods", "measure theory"],
+    stack: ["Lean 4"],
+    topics: ["formal methods", "measure theory"],
     links: [
       { label: "session", href: "https://icms-conference.org/2026/session5.html", kind: "event" },
       {
@@ -95,7 +98,8 @@ export const research: PortfolioItem[] = [
     authors: "Oghenevwogaga Ebresafe · Kiarash Sotoudeh · Ningning Xie",
     description:
       "An OCaml compiler extension for user-defined patterns, designed to preserve data abstraction while giving library authors expressive, stable pattern-matching interfaces. Funded by the Ahrefs Grant Program for OCaml.",
-    stack: ["OCaml", "compilers", "programming languages"],
+    stack: ["OCaml"],
+    topics: ["compilers", "programming languages"],
     links: [
       {
         label: "slides",
@@ -127,7 +131,8 @@ export const research: PortfolioItem[] = [
     meta: "Google DeepMind · open source",
     description:
       "Formalized open mathematical problems in Lean for DeepMind's benchmark of research-level conjectures behind AlphaProof, including Lehmer's totient problem and Singmaster's conjecture.",
-    stack: ["Lean 4", "theorem proving", "mathematics"],
+    stack: ["Lean 4"],
+    topics: ["theorem proving", "mathematics"],
     links: [
       {
         label: "repository",
@@ -168,7 +173,8 @@ export const industry: PortfolioItem[] = [
     meta: "Shopify · software engineering intern · summer 2026",
     description:
       "Owned Shopify's in-house merge queue on its internal Git server, from runtime improvements to compiler passes that reject privileged Docker sidecar options before jobs reach shared workers.",
-    stack: ["Ruby", "Kubernetes", "CI", "security"],
+    stack: ["Ruby", "Kubernetes"],
+    topics: ["CI", "security"],
     links: [{ label: "shopify", href: "https://www.shopify.com/", kind: "web" }],
     terminal: {
       slug: "shopify/merge-queue",
@@ -219,7 +225,8 @@ export const projects: PortfolioItem[] = [
     meta: "rust · terminal tooling",
     description:
       "An interactive shell wrapper that logs every command's directory, timing, output, and exit code into per-session JSON, with optional Azure Cosmos DB export and a cosmos_doctor setup check.",
-    stack: ["Rust", "Unix", "Azure Cosmos DB"],
+    stack: ["Rust"],
+    topics: ["Unix", "Azure Cosmos DB"],
     links: [{ label: "source", href: "https://github.com/exekis/recli", kind: "code" }],
     terminal: {
       slug: "recli",

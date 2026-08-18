@@ -52,6 +52,23 @@ const linkGlyphs: Record<PortfolioLinkKind, LucideIcon> = {
   grant: Award,
 };
 
+// topic chips get a unicode mark from each field's own notation instead of a logo
+const topicGlyphs: Record<string, string> = {
+  probability: "ℙ",
+  semantics: "⟦⟧",
+  "domain theory": "⊑",
+  "formal methods": "⊢",
+  "measure theory": "μ",
+  compilers: "→",
+  "programming languages": "λ",
+  "theorem proving": "∎",
+  mathematics: "π",
+  CI: "⟳",
+  security: "⊘",
+  Unix: "$",
+  "Azure Cosmos DB": "⊙",
+};
+
 const exekisBanner = [
   "",
   "  ▄████████ ▀████    ▐████▀    ▄████████    ▄█   ▄█▄  ▄█     ▄████████ ",
@@ -129,6 +146,18 @@ function ItemList({ items }: { items: PortfolioItem[] }) {
                 </li>
               ))}
             </ul>
+            {item.topics && item.topics.length > 0 && (
+              <ul className="topic-list" aria-label={`${item.title} topics`}>
+                {item.topics.map((topic) => (
+                  <li key={topic}>
+                    <span aria-hidden="true" className="topic-glyph">
+                      {topicGlyphs[topic] ?? "∘"}
+                    </span>
+                    {topic}
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
           <div className="item-side">
             <TerminalPane terminal={item.terminal} />
