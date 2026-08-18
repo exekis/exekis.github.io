@@ -360,12 +360,6 @@ code {
   vertical-align: -0.2em;
 }
 
-.stack-logo-wide {
-  width: 3.6em;
-  height: 1.25em;
-  vertical-align: -0.3em;
-}
-
 .item-side {
   display: flex;
   flex-direction: column;

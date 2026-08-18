@@ -1,20 +1,19 @@
-// brand marks as single svg paths: simple-icons (CC0) plus the official Lean
-// wordmark from lean-lang.org; colours are brand hexes tuned for the dark theme
+// brand marks as single svg paths: simple-icons (CC0) plus the official square
+// Lean mark traced from lean-lang.org's favicon; colours are brand hexes tuned
+// for the dark theme
 type TechLogo = {
   color: string;
   path: string;
   viewBox?: string;
-  stroked?: boolean;
-  wide?: boolean;
+  transform?: string;
 };
 
 const techLogos: Record<string, TechLogo> = {
   "Lean 4": {
     color: "#386ee0",
-    viewBox: "0 0 486 169",
-    stroked: true,
-    wide: true,
-    path: "M206.333 5.67949H105.667M206.333 5.67949L243.25 84.5M206.333 5.67949V84.5M243.25 84.5H317.549M243.25 84.5L279.667 163.321L280.889 163.318L317.549 84.5M206.333 84.5V163.321H5V5M206.333 84.5H105.667M317.549 84.5L353 5.67949M353 5.67949V164M353 5.67949H353.667L480.333 163.454H481V5",
+    viewBox: "0 0 214 214",
+    transform: "translate(0,214) scale(0.1,-0.1)",
+    path: "M52 2120 l-32 -20 -10 -26 -10 -25 0 -510 0 -510 139 -307 140 -307 88 -190 89 -190 39 -19 38 -19 41 14 40 14 31 60 30 60 195 399 195 399 5 -440 5 -441 24 -26 24 -25 28 -6 28 -6 35 16 34 17 9 16 8 17 5 354 5 354 324 -349 323 -349 34 -32 34 -33 43 0 43 0 20 15 21 14 12 28 11 28 -2 992 -3 993 -28 27 -27 28 -475 0 -475 0 -27 -27 -28 -28 0 -41 0 -41 28 -24 28 -24 405 0 405 0 -3 -127 -3 -128 -406 -5 -407 -5 -20 -19 -21 -18 -6 -29 -6 -28 13 -28 13 -28 35 -17 35 -18 388 0 387 0 0 -125 0 -125 -870 0 -870 0 0 405 0 404 -11 25 -12 25 -32 16 -33 15 -14 0 -13 0 -33 -20z m848 -1065 l0 -5 -95 -190 -95 -190 -166 0 -165 0 -29 63 -28 62 -60 133 -61 132 350 0 349 0 0 -5z m1040 -352 l0 -358 -34 35 -33 35 -278 300 -278 300 -20 23 -20 22 331 0 332 0 0 -357z m-1357 -298 l-37 -75 -6 0 -6 0 -29 67 -30 67 -3 8 -4 8 76 0 76 0 -37 -75z",
   },
   OCaml: {
     color: "#ec6813",
@@ -102,15 +101,11 @@ export default function StackLogo({ name }: { name: string }) {
   return (
     <svg
       aria-hidden="true"
-      className={logo.wide ? "stack-logo stack-logo-wide" : "stack-logo"}
+      className="stack-logo"
       viewBox={logo.viewBox ?? "0 0 24 24"}
-      style={logo.stroked ? { stroke: logo.color } : { fill: logo.color }}
-      fill={logo.stroked ? "none" : undefined}
-      strokeWidth={logo.stroked ? 20 : undefined}
-      strokeLinecap={logo.stroked ? "round" : undefined}
-      strokeLinejoin={logo.stroked ? "round" : undefined}
+      style={{ fill: logo.color }}
     >
-      <path d={logo.path} />
+      <path d={logo.path} transform={logo.transform} />
     </svg>
   );
 }
