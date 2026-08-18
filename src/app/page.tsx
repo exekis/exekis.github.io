@@ -223,11 +223,11 @@ export default function HomePage() {
             Here&apos;s a small summary of my work in compilers, formal methods, and systems
             software.
           </p> */}
-          <div className="profile-links" aria-label="Contact and profile links">
-            <span className="profile-email">
-              <Mail aria-hidden="true" className="profile-icon" strokeWidth={1.7} />
-              <span>kiarash [at] cs [dot] toronto [dot] edu</span>
-            </span>
+          <div className="profile-email">
+            <Mail aria-hidden="true" className="profile-icon" strokeWidth={1.7} />
+            <span>kiarash [at] cs [dot] toronto [dot] edu</span>
+          </div>
+          <div className="profile-links" aria-label="Profile links">
             {profileLinks.map(({ href, Icon, label }) => (
               <ExternalLink href={href} key={label} showMark={false}>
                 <Icon aria-hidden="true" className="profile-icon" strokeWidth={1.7} />
