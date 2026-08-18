@@ -159,13 +159,12 @@ export default function HomePage() {
           </pre>
           <p className="hero-summary">
             Hey there! I&apos;m Kiarash and I&apos;m a fourth-year undergrad at the University
-            of Toronto: computer science specialist, math major, philosophy minor. Next stop,
-            a computer science MSc in Canada.
+            of Toronto (Computer Science Specialist, Math Major, Philosophy Minor). I am currently looking for computer science MSc positions in Canada for Fall 2027.
           </p>
-          <p className="hero-summary">
-            Here&apos;s a small index of my work in compilers, formal methods, and systems
-            software: things I like building, proving, and occasionally breaking on purpose.
-          </p>
+          {/* <p className="hero-summary">
+            Here&apos;s a small summary of my work in compilers, formal methods, and systems
+            software.
+          </p> */}
           <div className="profile-links" aria-label="Profile links">
             {profileLinks.map(({ href, Icon, label }) => (
               <ExternalLink href={href} key={label} showMark={false}>
