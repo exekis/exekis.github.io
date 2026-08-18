@@ -327,6 +327,10 @@ code {
   color: inherit;
 }
 
+.title-tail {
+  white-space: nowrap;
+}
+
 .item-copy > p:not(.item-meta),
 .writing-entry > p:not(.item-meta),
 .about-copy p {

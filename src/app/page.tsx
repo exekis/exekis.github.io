@@ -102,10 +102,16 @@ function SectionHeading({
 
 function TitleLink({ link, title }: { link: PortfolioLink; title: string }) {
   const Glyph = linkGlyphs[link.kind ?? "web"];
+  // bind the glyph to the title's last word so it never wraps onto a line by itself
+  const words = title.split(" ");
+  const tail = words.pop();
   return (
     <ExternalLink href={link.href} showMark={false}>
-      {title}
-      <Glyph aria-hidden="true" className="title-glyph" strokeWidth={1.7} />
+      {words.length > 0 && `${words.join(" ")} `}
+      <span className="title-tail">
+        {tail}
+        <Glyph aria-hidden="true" className="title-glyph" strokeWidth={1.7} />
+      </span>
     </ExternalLink>
   );
 }
