@@ -2,7 +2,9 @@
   color-scheme: dark;
   --ink: #a9b1d6;
   --ink-strong: #c0caf5;
-  --muted: #565f89;
+  /* --muted 5.7:1 and --soft 4.6:1 on --background; body text needs 4.5:1 for WCAG AA */
+  --muted: #8b93bc;
+  --soft: #7a82ab;
   --faint: #414868;
   --accent: #9ece6a;
   --accent-bright: #89ddff;
@@ -333,7 +335,7 @@ code {
 
 .item-copy > p.item-authors {
   margin-top: 0.6rem;
-  color: var(--faint);
+  color: var(--soft);
   font-size: 0.85rem;
 }
 
@@ -341,7 +343,7 @@ code {
   display: flex;
   flex-wrap: wrap;
   margin-top: 1.25rem;
-  color: var(--faint);
+  color: var(--soft);
   font-size: 0.75rem;
   list-style: none;
 }
@@ -370,7 +372,7 @@ code {
   display: flex;
   flex-wrap: wrap;
   margin-top: 0.4rem;
-  color: var(--faint);
+  color: var(--soft);
   font-size: 0.75rem;
   list-style: none;
 }
@@ -544,7 +546,7 @@ code {
   gap: 1.5rem;
   border-top: 1px solid var(--line-strong);
   padding: 1.7rem 0 2.4rem;
-  color: var(--faint);
+  color: var(--soft);
   font-size: 0.75rem;
 }
 
@@ -602,7 +604,7 @@ code {
 }
 
 .post-row time {
-  color: var(--faint);
+  color: var(--soft);
   font-size: 0.8rem;
 }
 
@@ -651,7 +653,7 @@ code {
 .article-heading time {
   display: block;
   margin-top: 1.3rem;
-  color: var(--faint);
+  color: var(--soft);
   font-size: 0.8rem;
 }
 
@@ -788,6 +790,7 @@ code {
     --ink: #222;
     --ink-strong: #000;
     --muted: #444;
+    --soft: #555;
     --faint: #666;
     --accent: #222;
     --accent-bright: #000;
