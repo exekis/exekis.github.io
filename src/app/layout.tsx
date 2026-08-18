@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     siteName: "Kiarash Sotoudeh",
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Kiarash Sotoudeh",
     description:
       "Software engineer and programming languages researcher working on CI systems, compilers, and formal methods.",

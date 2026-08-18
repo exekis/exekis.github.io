@@ -182,9 +182,31 @@ function ItemList({ items }: { items: PortfolioItem[] }) {
   );
 }
 
+// structured data for search engines; the email stays out on purpose so scrapers can't lift it
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Kiarash Sotoudeh",
+  alternateName: "exekis",
+  url: "https://exekis.github.io/",
+  affiliation: {
+    "@type": "CollegeOrUniversity",
+    name: "University of Toronto",
+  },
+  sameAs: [
+    "https://github.com/exekis",
+    "https://scholar.google.ca/citations?user=Z83H9x8AAAAJ&hl=en",
+    "https://www.linkedin.com/in/kiarash-sotoudeh/",
+  ],
+};
+
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
       <section className="hero" aria-labelledby="hero-title">
         <div className="hero-copy">
           <h1 className="visually-hidden" id="hero-title">
