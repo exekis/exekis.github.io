@@ -8,6 +8,7 @@ import {
   Globe,
   GraduationCap,
   Linkedin,
+  Mail,
   Music2,
   NotebookText,
   Presentation,
@@ -194,7 +195,11 @@ export default function HomePage() {
             Here&apos;s a small summary of my work in compilers, formal methods, and systems
             software.
           </p> */}
-          <div className="profile-links" aria-label="Profile links">
+          <div className="profile-links" aria-label="Contact and profile links">
+            <span className="profile-email">
+              <Mail aria-hidden="true" className="profile-icon" strokeWidth={1.7} />
+              <span>kiarash [at] cs [dot] toronto [dot] edu</span>
+            </span>
             {profileLinks.map(({ href, Icon, label }) => (
               <ExternalLink href={href} key={label} showMark={false}>
                 <Icon aria-hidden="true" className="profile-icon" strokeWidth={1.7} />

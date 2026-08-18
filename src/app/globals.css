@@ -225,6 +225,12 @@ code {
   gap: 0.45rem;
 }
 
+.profile-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
 .profile-icon {
   width: 1rem;
   height: 1rem;
