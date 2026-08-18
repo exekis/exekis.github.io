@@ -1,5 +1,6 @@
 export type PortfolioLinkKind =
   | "paper"
+  | "preprint"
   | "code"
   | "slides"
   | "event"
@@ -48,7 +49,7 @@ export const research: PortfolioItem[] = [
         href: "https://icfp26.sigplan.org/details/icfp-2026-icfp-papers/23/Compositional-Generator-Equivalence",
         kind: "paper",
       },
-      { label: "arxiv", href: "https://arxiv.org/abs/2606.22616", kind: "paper" },
+      { label: "arxiv", href: "https://arxiv.org/abs/2606.22616", kind: "preprint" },
       {
         label: "lean proofs",
         href: "https://github.com/YellPika/quasi-borel-spaces",

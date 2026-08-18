@@ -1,4 +1,5 @@
 import {
+  Archive,
   Award,
   CalendarDays,
   Download,
@@ -41,6 +42,7 @@ const profileLinks = [
 
 const linkGlyphs: Record<PortfolioLinkKind, LucideIcon> = {
   paper: FileText,
+  preprint: Archive,
   code: Github,
   slides: Presentation,
   event: CalendarDays,
