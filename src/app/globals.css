@@ -178,8 +178,9 @@ code {
      stack, so pin that stack here. */
   font-family: ui-monospace, "SFMono-Regular", Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
-  font-size: 0.75rem;
-  line-height: 1rem;
+  /* 73 banner columns at a ~0.6em mono advance need ~44em of width; shrink the type before the art can clip */
+  font-size: min(0.75rem, calc((100vw - 2rem) / 45));
+  line-height: 1.334;
   white-space: pre;
 }
 
