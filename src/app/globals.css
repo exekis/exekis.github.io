@@ -170,9 +170,11 @@ code {
 }
 
 .exekis-banner {
+  position: relative;
   overflow-x: auto;
   overflow-y: hidden;
   color: var(--accent);
+  animation: banner-jolt 6s steps(1, end) infinite;
   /* Deployed main never applied JetBrains Mono to <pre>; the banner's block
      glyphs only keep their aspect ratio in Tailwind preflight's default mono
      stack, so pin that stack here. */
@@ -195,6 +197,116 @@ code {
   .exekis-banner {
     font-size: 1rem;
     line-height: 1.5rem;
+  }
+}
+
+/* glitch burst: two ghost copies rendered from data-text, so the banner string itself is never altered */
+.exekis-banner::before,
+.exekis-banner::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  clip-path: inset(100% 0 0 0);
+  pointer-events: none;
+}
+
+.exekis-banner::before {
+  color: var(--accent-bright);
+  animation: banner-glitch-a 6s steps(1, end) infinite;
+}
+
+.exekis-banner::after {
+  color: var(--red);
+  animation: banner-glitch-b 6s steps(1, end) infinite;
+}
+
+/* the burst lives in the 90% to 95% window (300ms of every 6s) across all three animations */
+@keyframes banner-jolt {
+  0%, 90% {
+    transform: none;
+  }
+  91% {
+    transform: translateX(0.08em);
+  }
+  92% {
+    transform: translateX(-0.08em);
+  }
+  93%, 100% {
+    transform: none;
+  }
+}
+
+@keyframes banner-glitch-a {
+  0% {
+    clip-path: inset(100% 0 0 0);
+    transform: none;
+  }
+  90% {
+    clip-path: inset(6% 0 78% 0);
+    transform: translateX(-0.22em);
+  }
+  91% {
+    clip-path: inset(56% 0 26% 0);
+    transform: translateX(0.18em);
+  }
+  92% {
+    clip-path: inset(28% 0 58% 0);
+    transform: translateX(-0.16em);
+  }
+  93% {
+    clip-path: inset(74% 0 8% 0);
+    transform: translateX(0.22em);
+  }
+  94% {
+    clip-path: inset(12% 0 70% 0);
+    transform: translateX(-0.12em);
+  }
+  95%, 100% {
+    clip-path: inset(100% 0 0 0);
+    transform: none;
+  }
+}
+
+@keyframes banner-glitch-b {
+  0% {
+    clip-path: inset(100% 0 0 0);
+    transform: none;
+  }
+  90% {
+    clip-path: inset(62% 0 20% 0);
+    transform: translateX(0.2em);
+  }
+  91% {
+    clip-path: inset(10% 0 72% 0);
+    transform: translateX(-0.22em);
+  }
+  92% {
+    clip-path: inset(70% 0 12% 0);
+    transform: translateX(0.16em);
+  }
+  93% {
+    clip-path: inset(24% 0 62% 0);
+    transform: translateX(-0.18em);
+  }
+  94% {
+    clip-path: inset(52% 0 34% 0);
+    transform: translateX(0.14em);
+  }
+  95%, 100% {
+    clip-path: inset(100% 0 0 0);
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .exekis-banner {
+    animation: none;
+  }
+
+  .exekis-banner::before,
+  .exekis-banner::after {
+    content: none;
   }
 }
 
@@ -815,6 +927,15 @@ code {
   .profile-links,
   .term {
     display: none;
+  }
+
+  .exekis-banner {
+    animation: none;
+  }
+
+  .exekis-banner::before,
+  .exekis-banner::after {
+    content: none;
   }
 
   .hero {

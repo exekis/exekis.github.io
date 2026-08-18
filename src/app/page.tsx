@@ -212,7 +212,7 @@ export default function HomePage() {
           <h1 className="visually-hidden" id="hero-title">
             Kiarash Sotoudeh, exekis
           </h1>
-          <pre className="exekis-banner" aria-hidden="true">
+          <pre className="exekis-banner" aria-hidden="true" data-text={exekisBanner}>
             {exekisBanner}
           </pre>
           <p className="hero-summary">
