@@ -213,7 +213,7 @@ export const industry: PortfolioItem[] = [
       lines: [
         { kind: "cmd", text: "esgc build footprint.rules" },
         { kind: "ok", text: "scoring pipeline compiled" },
-        { kind: "ok", text: "xla: inference path fused" },
+        { kind: "ok", text: "carbon tracking: real-time" },
       ],
     },
   },
